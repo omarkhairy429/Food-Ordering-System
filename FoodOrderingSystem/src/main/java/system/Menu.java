@@ -1,6 +1,6 @@
-package System;
+package system;
 
-import Helper.ItemPrinter;
+import helper.ItemPrinter;
 
 import java.util.ArrayList;
 

@@ -2,7 +2,7 @@ package Application;
 
 import java.util.ArrayList;
 import java.util.List;
-import System.*;
+import system.*;
 
 public class Main {
     public static void main(String[] args) {

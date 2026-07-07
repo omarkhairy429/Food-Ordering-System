@@ -1,8 +1,8 @@
-package System;
+package system;
 
-import Helper.ItemPrinter;
-import Notification.*;
-import Payment.*;
+import helper.ItemPrinter;
+import notifications.*;
+import payments.*;
 
 
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ public class Order {
 
     // Setting the payment method
     public void setPaymentMethod(String typeOfPayment) {
-        if (typeOfPayment.equals("cash")) {
+        if (typeOfPayment.equalsIgnoreCase("cash")) {
             payment = new Cash();
         }
         else if (typeOfPayment.equalsIgnoreCase("visa")) {

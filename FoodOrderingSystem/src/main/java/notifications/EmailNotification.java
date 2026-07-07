@@ -1,5 +1,5 @@
-package Notification;
-import System.Customer;
+package notifications;
+import system.Customer;
 
 public class EmailNotification extends Notification {
     public EmailNotification(Customer customer) {

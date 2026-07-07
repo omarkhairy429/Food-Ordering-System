@@ -1,4 +1,4 @@
-package Payment;
+package payments;
 
 public class Visa extends Payment {
     public String pay() {
