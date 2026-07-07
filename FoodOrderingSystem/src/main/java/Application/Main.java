@@ -19,7 +19,7 @@ public class Main {
         Menu restaurant1 = new Menu(items);
 
         /* 2) Customer views the menu */
-        restaurant1.showItems();
+        customer1.viewItems(restaurant1);
         System.out.println("\n");
 
         /* 3) System.Customer adds Items to his System.Order */
