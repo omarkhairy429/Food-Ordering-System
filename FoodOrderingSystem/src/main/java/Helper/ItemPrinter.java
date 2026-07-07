@@ -1,6 +1,9 @@
-import java.util.ArrayList;
+package Helper;
 
-// Helper class to showItems inside Menu class and Order class
+import java.util.ArrayList;
+import System.Item;
+
+// Helper class to showItems inside System.Menu class and System.Order class
 public class ItemPrinter {
     public  static void printItems (ArrayList<Item> items) {
         int itemNumber = 1;

@@ -1,3 +1,6 @@
+package Notification;
+import System.Customer;
+
 public abstract class Notification {
     protected Customer customer;
 

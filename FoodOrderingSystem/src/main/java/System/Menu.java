@@ -1,3 +1,7 @@
+package System;
+
+import Helper.ItemPrinter;
+
 import java.util.ArrayList;
 
 public class Menu {
@@ -24,12 +28,12 @@ public class Menu {
     }
 
 
-    // Add Item to the menu
+    // Add System.Item to the menu
     public void addItem(Item item) {
         items.add(item);
     }
 
-    // Show Menu items
+    // Show System.Menu items
     public void showItems() {
         ItemPrinter.printItems(items);
     }

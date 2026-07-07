@@ -1,4 +1,6 @@
-public class Cash extends Payment{
+package Payment;
+
+public class Cash extends Payment {
     public String pay() {
         return "Paying with cash";
     }

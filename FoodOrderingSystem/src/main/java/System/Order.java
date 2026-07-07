@@ -1,3 +1,10 @@
+package System;
+
+import Helper.ItemPrinter;
+import Notification.*;
+import Payment.*;
+
+
 import java.util.ArrayList;
 
 public class Order {
@@ -32,7 +39,7 @@ public class Order {
         return payment.pay();
     }
 
-    // Setting Notification Type
+    // Setting Notification.Notification Type
     public void setNotificationType(String notificationType) {
         if (notificationType.equalsIgnoreCase("email")) {
             notification = new EmailNotification(customer);
@@ -45,7 +52,7 @@ public class Order {
         }
     }
 
-    // Getting the Notification Type
+    // Getting the Notification.Notification Type
     public void sendNotification() {
         if (notification == null) {
             throw new NullPointerException("Notification method wasn't set correctly");
@@ -69,10 +76,10 @@ public class Order {
 
 
 
-    // Printing Order Summary
+    // Printing System.Order Summary
     public void orderSummary() {
         System.out.println("Customer: " + customer.getName());
-        System.out.println("Customer: " + customer.getLocation());
+        System.out.println("Location: " + customer.getLocation());
         System.out.println("####################");
         showItems();
         System.out.println("####################");

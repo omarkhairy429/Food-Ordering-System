@@ -1,3 +1,6 @@
+package Notification;
+import System.Customer;
+
 public class SmsNotification extends Notification {
     public SmsNotification(Customer customer) {
         super(customer);

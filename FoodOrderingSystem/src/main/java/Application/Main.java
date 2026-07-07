@@ -1,11 +1,14 @@
+package Application;
+
 import java.util.ArrayList;
 import java.util.List;
+import System.*;
 
 public class Main {
     public static void main(String[] args) {
         Customer customer1 = new Customer("Omar Fayed", "Egypt, Cairo");
 
-        /* 1) Creating The Restaurant Menu   */
+        /* 1) Creating The Restaurant System.Menu   */
         Item item1 = new Item("Burger", 300);
         Item item2 = new Item("Steak", 450);
         Item item3 = new Item("Fries", 100);
@@ -15,19 +18,23 @@ public class Main {
         ArrayList<Item> items = new ArrayList<Item>(List.of(item1, item2, item3, item4, item5, item6));
         Menu restaurant1 = new Menu(items);
 
-        /* 2) Customer adds Items to his Order */
+        /* 2) Customer views the menu */
+        restaurant1.showItems();
+        System.out.println("\n");
+
+        /* 3) System.Customer adds Items to his System.Order */
         Order order1 = new Order(customer1);
         customer1.addItem(order1, item2);
         customer1.addItem(order1, item6);
 
-        /* 3) Customer chooses the payment method */
+        /* 4) System.Customer chooses the payment method */
         customer1.choosePaymentPlan(order1, "visa");
 
 
-        /* 4) Printing Order Summary */
+        /* 5) Printing System.Order Summary */
         order1.orderSummary();
 
-        /* 5) Setting notification type */
+        /* 6) Setting notification type */
         order1.setNotificationType("email");
         order1.sendNotification();
 

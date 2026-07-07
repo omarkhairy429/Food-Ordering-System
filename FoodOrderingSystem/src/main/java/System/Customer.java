@@ -1,3 +1,5 @@
+package System;
+
 public class Customer {
     private String name;
     private String location;
@@ -26,7 +28,7 @@ public class Customer {
         return location;
     }
 
-    /* View Menu Items */
+    /* View System.Menu Items */
     public void viewItems(Menu menu) {
         menu.showItems();
     }
@@ -36,7 +38,7 @@ public class Customer {
         order.addItem(item);
     }
 
-    /* Choose Payment Plan */
+    /* Choose Payment.Payment Plan */
     public void choosePaymentPlan(Order order, String paymentMethod) {
         order.setPaymentMethod(paymentMethod);
     }
