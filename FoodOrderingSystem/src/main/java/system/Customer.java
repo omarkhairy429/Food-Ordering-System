@@ -1,5 +1,7 @@
 package system;
 
+import payments.Payment;
+
 public class Customer {
     private String name;
     private String location;
@@ -39,8 +41,8 @@ public class Customer {
     }
 
     /* Choose Payment.Payment Plan */
-    public void choosePaymentPlan(Order order, String paymentMethod) {
-        order.setPaymentMethod(paymentMethod);
+    public void choosePaymentPlan(Order order, Payment payment) {
+        order.setPaymentMethod(payment);
     }
 
 }
