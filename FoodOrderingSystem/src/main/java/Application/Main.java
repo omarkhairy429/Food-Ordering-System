@@ -9,6 +9,8 @@ import payments.Cash;
 import payments.Payment;
 import system.*;
 
+
+
 public class Main {
     public static void main(String[] args) {
         Customer customer1 = new Customer("Omar Fayed", "Egypt, Cairo");
@@ -31,7 +33,11 @@ public class Main {
         System.out.println("\n");
 
         /* 3) System.Customer adds Items to his System.Order */
-        Order order1 = new Order(customer1);
+        Order order1 = new Order.OrderBuilder(customer1)
+                .payment(payment)
+                .notification(notification)
+                .build();
+
         customer1.addItem(order1, item2);
         customer1.addItem(order1, item6);
 
@@ -42,8 +48,7 @@ public class Main {
         /* 5) Printing System.Order Summary */
         order1.orderSummary();
 
-        /* 6) Setting notification type */
-        order1.setNotificationType(notification);
+        /* 6) Sending Notification */
         order1.sendNotification();
 
 
