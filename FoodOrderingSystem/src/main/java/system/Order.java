@@ -13,10 +13,14 @@ public class Order {
     private Payment payment;
     private Notification notification;
 
-    // Constructor
-    public Order(Customer customer) {
-        this.customer = customer;
+    private Order(OrderBuilder builder) {
+        this.customer = builder.customer;
+        this.items = builder.items;
+        this.payment = builder.payment;
+        this.notification = builder.notification;
     }
+
+
 
     // Setting the payment method
     public void setPaymentMethod(Payment payment) {
@@ -73,5 +77,38 @@ public class Order {
 
     private  void showItems() {
       ItemPrinter.printItems(items);
+    }
+
+
+    /* Order Builder Class */
+
+    public static class OrderBuilder {
+        private ArrayList<Item> items = new ArrayList<>();
+        private Customer customer;
+        private Payment payment;
+        private Notification notification;
+
+        public OrderBuilder(Customer customer) {
+            this.customer = customer;
+        }
+
+        public OrderBuilder payment(Payment payment) {
+            this.payment = payment;
+            return this;
+        }
+
+        public OrderBuilder notification(Notification notification) {
+            this.notification = notification;
+            return this;
+        }
+        public OrderBuilder items(ArrayList<Item> items) {
+            this.items = items;
+            return this;
+        }
+
+        public Order build() {
+            return new Order(this);
+        }
+
     }
 }
