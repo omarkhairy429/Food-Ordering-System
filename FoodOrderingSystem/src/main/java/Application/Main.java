@@ -2,11 +2,19 @@ package Application;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import notifications.EmailNotification;
+import notifications.Notification;
+import payments.Cash;
+import payments.Payment;
 import system.*;
 
 public class Main {
     public static void main(String[] args) {
         Customer customer1 = new Customer("Omar Fayed", "Egypt, Cairo");
+        Payment payment = new Cash();
+        Notification notification = new EmailNotification(customer1);
+
 
         /* 1) Creating The Restaurant System.Menu   */
         Item item1 = new Item("Burger", 300);
@@ -28,14 +36,14 @@ public class Main {
         customer1.addItem(order1, item6);
 
         /* 4) System.Customer chooses the payment method */
-        customer1.choosePaymentPlan(order1, "visa");
+        customer1.choosePaymentPlan(order1, payment);
 
 
         /* 5) Printing System.Order Summary */
         order1.orderSummary();
 
         /* 6) Setting notification type */
-        order1.setNotificationType("email");
+        order1.setNotificationType(notification);
         order1.sendNotification();
 
 
