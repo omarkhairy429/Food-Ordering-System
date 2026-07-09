@@ -19,37 +19,21 @@ public class Order {
     }
 
     // Setting the payment method
-    public void setPaymentMethod(String typeOfPayment) {
-        if (typeOfPayment.equalsIgnoreCase("cash")) {
-            payment = new Cash();
-        }
-        else if (typeOfPayment.equalsIgnoreCase("visa")) {
-            payment = new Visa();
-        }
-        else {
-            throw new IllegalArgumentException(typeOfPayment + " is not supported");
-        }
+    public void setPaymentMethod(Payment payment) {
+        this.payment = payment;
     }
 
     // Getting the payment method
-    public String getPaymentMethod() {
+    public void performPayment() {
         if (payment == null) {
             throw new NullPointerException("Payment wasn't set correctly");
         }
-        return payment.pay();
+        payment.pay();
     }
 
     // Setting Notification.Notification Type
-    public void setNotificationType(String notificationType) {
-        if (notificationType.equalsIgnoreCase("email")) {
-            notification = new EmailNotification(customer);
-        }
-        else if (notificationType.equalsIgnoreCase("sms")) {
-            notification = new SmsNotification(customer);
-        }
-        else {
-            throw new IllegalArgumentException(notificationType + " is not supported");
-        }
+    public void setNotificationType(Notification notification) {
+        this.notification = notification;
     }
 
     // Getting the Notification.Notification Type
@@ -84,9 +68,6 @@ public class Order {
         showItems();
         System.out.println("####################");
         System.out.println("Total Price: " + totalPrice());
-
-        System.out.println("\n");
-        System.out.println(getPaymentMethod());
 
     }
 

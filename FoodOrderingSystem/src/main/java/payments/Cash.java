@@ -1,7 +1,7 @@
 package payments;
 
 public class Cash extends Payment {
-    public String pay() {
-        return "Paying with cash";
+    public void pay() {
+        System.out.println("Paying with Visa");
     }
 }
