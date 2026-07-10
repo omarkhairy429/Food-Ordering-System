@@ -1,23 +1,27 @@
-package system;
+package orders;
 
 import helper.ItemPrinter;
 import notifications.*;
 import payments.*;
+import system.Customer;
+import system.Item;
 
 
 import java.util.ArrayList;
 
 public class Order {
-    private ArrayList<Item> items = new ArrayList<>();
-    private Customer customer;
+    private  ArrayList<Item> items = new ArrayList<>();
+    private final Customer customer;
     private Payment payment;
     private Notification notification;
 
-    private Order(OrderBuilder builder) {
-        this.customer = builder.customer;
-        this.items = builder.items;
-        this.payment = builder.payment;
-        this.notification = builder.notification;
+    // This Constructor Access is through the package as
+    // it will be used by OrderBuilder
+     Order(Customer customer, Payment payment, Notification notification, ArrayList<Item> items) {
+         this.customer = customer;
+         this.payment = payment;
+         this.notification = notification;
+         this.items = items;
     }
 
 
@@ -79,36 +83,4 @@ public class Order {
       ItemPrinter.printItems(items);
     }
 
-
-    /* Order Builder Class */
-
-    public static class OrderBuilder {
-        private ArrayList<Item> items = new ArrayList<>();
-        private Customer customer;
-        private Payment payment;
-        private Notification notification;
-
-        public OrderBuilder(Customer customer) {
-            this.customer = customer;
-        }
-
-        public OrderBuilder payment(Payment payment) {
-            this.payment = payment;
-            return this;
-        }
-
-        public OrderBuilder notification(Notification notification) {
-            this.notification = notification;
-            return this;
-        }
-        public OrderBuilder items(ArrayList<Item> items) {
-            this.items = items;
-            return this;
-        }
-
-        public Order build() {
-            return new Order(this);
-        }
-
-    }
 }
