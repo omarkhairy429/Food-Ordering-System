@@ -5,6 +5,8 @@ import java.util.List;
 
 import notifications.EmailNotification;
 import notifications.Notification;
+import orders.Order;
+import orders.OrderBuilder;
 import payments.Cash;
 import payments.Payment;
 import system.*;
@@ -33,7 +35,7 @@ public class Main {
         System.out.println("\n");
 
         /* 3) System.Customer adds Items to his System.Order */
-        Order order1 = new Order.OrderBuilder(customer1)
+        Order order1 = new OrderBuilder(customer1)
                 .payment(payment)
                 .notification(notification)
                 .build();
@@ -44,9 +46,9 @@ public class Main {
         /* 4) System.Customer chooses the payment method */
         customer1.choosePaymentPlan(order1, payment);
 
-
         /* 5) Printing System.Order Summary */
         order1.orderSummary();
+        customer1.pay(order1);
 
         /* 6) Sending Notification */
         order1.sendNotification();

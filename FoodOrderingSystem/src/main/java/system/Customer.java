@@ -1,5 +1,6 @@
 package system;
 
+import orders.Order;
 import payments.Payment;
 
 public class Customer {
@@ -43,6 +44,10 @@ public class Customer {
     /* Choose Payment.Payment Plan */
     public void choosePaymentPlan(Order order, Payment payment) {
         order.setPaymentMethod(payment);
+    }
+
+    public void pay(Order order) {
+        order.performPayment();
     }
 
 }
